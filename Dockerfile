@@ -1,8 +1,14 @@
-FROM tomcat:9.0
+# Usa Tomcat 10.1.39 com Java 17 (compatível com Jakarta EE)
+FROM tomcat:10.1.39-jdk17-temurin
 
-# Remove qualquer aplicação default do Tomcat
-RUN rm -rf /usr/local/tomcat/webapps/ROOT \
-           /usr/local/tomcat/webapps/Condominio_Benguiados*
+# Remove apps default (ROOT, docs, etc) para evitar conflitos
+RUN rm -rf /usr/local/tomcat/webapps/*
 
-# Copia o WAR e renomeia como ROOT.war para servir na raiz
+# Copia o WAR renomeando como ROOT.war para servir na raiz
 COPY Condominio_Benguiados.war /usr/local/tomcat/webapps/ROOT.war
+
+# Expõe a porta padrão do Tomcat
+EXPOSE 8080
+
+# Inicia o Tomcat automaticamente
+CMD ["catalina.sh", "run"]
