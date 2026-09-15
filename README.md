@@ -1,4 +1,4 @@
-# Plataforma de Gestão de Condomínios (CondominioDeploy)
+# Plataforma de Gestão de Condomínios (CondominiosBenguiados)
 
 Uma aplicação web robusta desenvolvida em Java (Jakarta EE) para simplificar e automatizar a gestão administrativa e financeira de condomínios.
 
